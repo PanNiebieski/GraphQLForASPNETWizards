@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.35821.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01GraphQLHelloWorld", "01GraphQLHelloWorld\01GraphQLHelloWorld.csproj", "{90E3F52B-537E-442D-B725-63099E1B4617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02GraphQLDocumentsAndMetaData", "02GraphQLDocumentsAndMetaData\02GraphQLDocumentsAndMetaData.csproj", "{2E42BB8F-C87F-4DCF-9911-BC83DB63D635}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03GraphQLDocumentsSortingOrdering", "03GraphQLDocumentsSortingOrdering\03GraphQLDocumentsSortingOrdering.csproj", "{DD170059-6C4E-0959-0E16-3C94045757A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04GraphQLDocumentsWithDapper", "04GraphQLDocumentsWithDapper\04GraphQLDocumentsWithDapper.csproj", "{9BA29CF2-1DA3-4F4B-BB51-EE57DAC87C81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05GraphQLDocumentGateWayForRestAPI", "05GraphQLDocumentGateWayForRestAPI\05GraphQLDocumentGateWayForRestAPI.csproj", "{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05GraphQLDocumentGateWayForRest", "05GraphQLDocumentGateWayForRest", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05RestAPIDocumentViews", "05RestAPIDocumentViews\05RestAPIDocumentViews.csproj", "{E561BFC9-93FF-45FC-BE40-AB5827D3E375}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90E3F52B-537E-442D-B725-63099E1B4617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E3F52B-537E-442D-B725-63099E1B4617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E3F52B-537E-442D-B725-63099E1B4617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E3F52B-537E-442D-B725-63099E1B4617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E42BB8F-C87F-4DCF-9911-BC83DB63D635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E42BB8F-C87F-4DCF-9911-BC83DB63D635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E42BB8F-C87F-4DCF-9911-BC83DB63D635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E42BB8F-C87F-4DCF-9911-BC83DB63D635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD170059-6C4E-0959-0E16-3C94045757A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD170059-6C4E-0959-0E16-3C94045757A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD170059-6C4E-0959-0E16-3C94045757A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD170059-6C4E-0959-0E16-3C94045757A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA29CF2-1DA3-4F4B-BB51-EE57DAC87C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA29CF2-1DA3-4F4B-BB51-EE57DAC87C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA29CF2-1DA3-4F4B-BB51-EE57DAC87C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA29CF2-1DA3-4F4B-BB51-EE57DAC87C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E561BFC9-93FF-45FC-BE40-AB5827D3E375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E561BFC9-93FF-45FC-BE40-AB5827D3E375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E561BFC9-93FF-45FC-BE40-AB5827D3E375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E561BFC9-93FF-45FC-BE40-AB5827D3E375}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E561BFC9-93FF-45FC-BE40-AB5827D3E375} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E5ABCC0-5DBB-45A5-B820-4F3BD537F3F1}
+	EndGlobalSection
+EndGlobal

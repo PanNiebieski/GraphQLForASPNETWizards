@@ -1,0 +1,14 @@
+﻿namespace _02GraphQLDocumentsAndMetaData.Models;
+
+public class Tag
+{
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public List<Document> Documents { get; set; } = new();
+}
+
+
+
+
+
+
