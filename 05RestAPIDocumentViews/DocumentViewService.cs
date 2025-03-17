@@ -2,25 +2,6 @@
 
 namespace _05RestAPIDocumentViews;
 
-public enum TimeFrame
-{
-    Day,
-    Week,
-    Month
-}
-
-public class DocumentViewStatistics
-{
-    public string DocumentId { get; set; } = string.Empty;
-    public DateTime Date { get; set; }
-    public int Views { get; set; }
-}
-
-public interface IDocumentViewService
-{
-    Task<IEnumerable<DocumentViewStatistics>> GetDocumentViewsOverTimeAsync(string documentId, TimeFrame timeFrame);
-}
-
 public class DocumentViewService : IDocumentViewService
 {
     private readonly ApplicationDbContext _context;
@@ -32,7 +13,7 @@ public class DocumentViewService : IDocumentViewService
 
     public async Task<IEnumerable<DocumentViewStatistics>> GetDocumentViewsOverTimeAsync(string documentId, TimeFrame timeFrame)
     {
-        var today = DateTime.UtcNow.Date;
+        var today = DateTime.ParseExact("11-03-2025", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
         switch (timeFrame)
         {

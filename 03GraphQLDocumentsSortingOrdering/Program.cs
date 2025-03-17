@@ -14,7 +14,7 @@ builder.Services
     .AddProjections()
     .AddSorting()
     .AddFiltering()
-    d.AddType<DocumentType>()
+    .AddType<DocumentType>()
     .AddType<TagType>()
     .AddType<MetadataType>()
     .RegisterDbContextFactory<AppDbContext>();
