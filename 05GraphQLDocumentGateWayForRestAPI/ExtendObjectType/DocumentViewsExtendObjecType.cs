@@ -1,17 +1,13 @@
-﻿
-using _05GraphQLDocumentGateWayForRestAPI.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿using _05GraphQLDocumentGateWayForRestAPI.Models;
 using System.Text.Json;
 
-namespace _05GraphQLDocumentGateWayForRestAPI.ObjectType;
+namespace _05GraphQLDocumentGateWayForRestAPI.ExtendObjectType;
 
-[Node]
+//[Node]
 [ExtendObjectType(typeof(Document))]
-public sealed class DocumentViewsExtension
+public sealed class DocumentViewsExtendObjecType
 {
-    public async Task<List<DocumentViewStatistics>> GetViewChange(ChangeSpan span,
+    public async Task<DocumentViews> GetViewChange(ChangeSpan span,
         [Parent] Document parent,
         [Service] IHttpClientFactory clientFactory,
         CancellationToken cancellationToken)
@@ -32,9 +28,15 @@ public sealed class DocumentViewsExtension
             PropertyNameCaseInsensitive = true
         };
 
-        var a = json.Deserialize<List<DocumentViewStatistics>>(options);
+        var list = json.Deserialize<List<DocumentViewRecord>>(options);
 
-        return a;
+        if (list == null || list.Count == 0)
+        {
+            return new DocumentViews(null, null, 0);
+        }
+
+        return new DocumentViews(list.GetDateFirst(),
+            list.GetDateLast(), list.Sum(a => a.Views));
     }
 
     //[NodeResolver]
@@ -46,12 +48,6 @@ public sealed class DocumentViewsExtension
     //    return await context.Documents.FirstOrDefaultAsync(t => t.Id == id, cancellationToken);
     //}
 
-}
 
-public enum ChangeSpan
-{
-    Day,
-    Week,
-    Month
 }
 

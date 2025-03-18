@@ -1,6 +1,6 @@
 using _05GraphQLDocumentGateWayForRestAPI;
+using _05GraphQLDocumentGateWayForRestAPI.ExtendObjectType;
 using _05GraphQLDocumentGateWayForRestAPI.Models;
-using _05GraphQLDocumentGateWayForRestAPI.ObjectType;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
 
@@ -22,17 +22,13 @@ builder.Services.AddHttpClient("documentViews", client =>
 // Register GraphQL services
 builder.Services
     .AddGraphQLServer()
-
     .AddProjections()
     .AddSorting()
     .AddFiltering()
-    .AddTypeExtension<DocumentViewsExtension>()
+    .AddTypeExtension<DocumentViewsExtendObjecType>()
     .AddType<DocumentType>()
-    .AddType<TagType>()
-    .AddType<MetadataType>()
-        .AddTypes(typeof(Query))
+    .AddTypes(typeof(Query))
     .RegisterDbContextFactory<AppDbContext>();
-
 
 var app = builder.Build();
 
