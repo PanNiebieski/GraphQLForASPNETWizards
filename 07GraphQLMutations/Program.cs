@@ -27,7 +27,9 @@ builder.Services
     .AddFiltering()
     .AddTypeExtension<DocumentViewsExtendObjecType>()
     .AddType<DocumentType>()
-    .AddTypes(typeof(Query), typeof(WatchlistMutation))
+
+    .AddMutationType<Mutation>()
+    .AddQueryType<Query>()
     .AddMutationConventions()
     .RegisterDbContextFactory<AppDbContext>();
 
