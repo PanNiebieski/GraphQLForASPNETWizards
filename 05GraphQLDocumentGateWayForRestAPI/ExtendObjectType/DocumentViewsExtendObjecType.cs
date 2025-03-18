@@ -15,7 +15,7 @@ public sealed class DocumentViewsExtendObjecType
         using HttpClient client = clientFactory.CreateClient("documentViews");
 
         using var message = new HttpRequestMessage
-            (HttpMethod.Get, $"/views/{parent.Id}/{span.ToString().ToLower()}");
+            (HttpMethod.Get, $"/views/id/{parent.Id}/span/{span.ToString().ToLower()}");
 
         var response = await client.SendAsync(message, cancellationToken);
         var content = await response.Content.ReadAsByteArrayAsync(cancellationToken);

@@ -1,6 +1,5 @@
 using _05GraphQLDocumentGateWayForRestAPI;
 using _05GraphQLDocumentGateWayForRestAPI.ExtendObjectType;
-using _05GraphQLDocumentGateWayForRestAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
 
@@ -12,10 +11,9 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 builder.Services.AddHttpClient("documentViews", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:2222"); // Set the base address for the client
+    client.BaseAddress = new Uri("https://localhost:2222");
     client.DefaultRequestHeaders.Accept.Clear();
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    // Add any other default headers or settings here
 });
 
 

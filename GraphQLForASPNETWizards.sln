@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06GraphQL_DocumentDataLoade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06GraphQLDocumentDataLoader", "06GraphQLDocumentDataLoader\06GraphQLDocumentDataLoader.csproj", "{A6D2AC0B-6F95-4608-B7EC-5759622F6E1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07GraphQL_Mutation", "07GraphQL_Mutation", "{B3ADE1BB-9A93-4084-8408-26D959C5C2D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07GraphQLMutations", "07GraphQLMutations\07GraphQLMutations.csproj", "{AF490790-B58C-4176-8871-E69248CCF845}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{A6D2AC0B-6F95-4608-B7EC-5759622F6E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D2AC0B-6F95-4608-B7EC-5759622F6E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D2AC0B-6F95-4608-B7EC-5759622F6E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF490790-B58C-4176-8871-E69248CCF845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF490790-B58C-4176-8871-E69248CCF845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF490790-B58C-4176-8871-E69248CCF845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF490790-B58C-4176-8871-E69248CCF845}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +83,7 @@ Global
 		{4A34F0B1-F32D-4F1C-8AFF-FC704E9EA055} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E561BFC9-93FF-45FC-BE40-AB5827D3E375} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A6D2AC0B-6F95-4608-B7EC-5759622F6E1E} = {99CEB629-D2BC-40D8-A159-D4CC4924182E}
+		{AF490790-B58C-4176-8871-E69248CCF845} = {B3ADE1BB-9A93-4084-8408-26D959C5C2D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E5ABCC0-5DBB-45A5-B820-4F3BD537F3F1}

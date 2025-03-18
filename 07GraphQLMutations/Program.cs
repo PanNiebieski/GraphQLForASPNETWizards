@@ -1,5 +1,5 @@
-using _06GraphQLDocumentDataLoader;
-using _06GraphQLDocumentDataLoader.ExtendObjectType;
+using _07GraphQLMutations;
+using _07GraphQLMutations.ExtendObjectType;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
 
@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<WatchlistRepository>();
 
 builder.Services.AddHttpClient("documentViews", client =>
 {
@@ -25,8 +27,8 @@ builder.Services
     .AddFiltering()
     .AddTypeExtension<DocumentViewsExtendObjecType>()
     .AddType<DocumentType>()
-    .AddTypes(typeof(Query))
-    //.AddDataLoader<KeyAndSpan, DocumentViews, ViewsByKeyDataLoader>()
+    .AddTypes(typeof(Query), typeof(WatchlistMutation))
+    .AddMutationConventions()
     .RegisterDbContextFactory<AppDbContext>();
 
 var app = builder.Build();
