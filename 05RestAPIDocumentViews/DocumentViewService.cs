@@ -13,58 +13,22 @@ public class DocumentViewService : IDocumentViewService
 
     public async Task<IEnumerable<DocumentViewStatistics>> GetDocumentViewsOverTimeAsync(string documentId, TimeFrame timeFrame)
     {
-        var today = DateTime.ParseExact("11-03-2025", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+        var today = DateTime.ParseExact("12-03-2025", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
         switch (timeFrame)
         {
-            case TimeFrame.Day:
-                return await GetDailyStatisticsAsync(documentId, today.AddDays(-1), today);
-
             case TimeFrame.Week:
                 return await GetWeeklyStatisticsAsync(documentId, today.AddDays(-7), today);
 
             case TimeFrame.Month:
                 return await GetMonthlyStatisticsAsync(documentId, today.AddMonths(-1), today);
 
+            case TimeFrame.ThreeMonths:
+                return await GetStatisticsByMonth3Async(documentId, today.AddMonths(-3), today);
+
             default:
                 return await GetMonthlyStatisticsAsync(documentId, today.AddMonths(-1), today);
         }
-    }
-
-    private async Task<IEnumerable<DocumentViewStatistics>> GetDailyStatisticsAsync(string documentId, DateTime startDate, DateTime endDate)
-    {
-        // For a day view, we'll show hourly data
-        // For SQLite, we need to carefully format the dates for proper comparison
-
-        var result = new List<DocumentViewStatistics>();
-        var hourlyDataQuery = await _context.DocumentViews
-            .Where(dv => dv.DocumentId == documentId && dv.Date >= startDate && dv.Date <= endDate)
-            .ToListAsync();
-
-        // Group by hour manually since SQLite doesn't have sophisticated date functions
-        var hourlyData = hourlyDataQuery
-            .GroupBy(dv => new { Hour = dv.Date.Hour })
-            .Select(g => new
-            {
-                Hour = g.Key.Hour,
-                Views = g.Sum(x => x.Views)
-            })
-            .OrderBy(x => x.Hour)
-            .ToList();
-
-        // Create hourly statistics
-        for (int hour = 0; hour < 24; hour++)
-        {
-            var hourData = hourlyData.FirstOrDefault(h => h.Hour == hour);
-            result.Add(new DocumentViewStatistics
-            {
-                DocumentId = documentId,
-                Date = startDate.Date.AddHours(hour),
-                Views = hourData?.Views ?? 0
-            });
-        }
-
-        return result;
     }
 
     private async Task<IEnumerable<DocumentViewStatistics>> GetWeeklyStatisticsAsync(string documentId, DateTime startDate, DateTime endDate)
@@ -135,6 +99,42 @@ public class DocumentViewService : IDocumentViewService
             {
                 DocumentId = documentId,
                 Date = week,
+                Views = views
+            });
+        }
+
+        return result;
+    }
+
+    private async Task<IEnumerable<DocumentViewStatistics>> GetStatisticsByMonth3Async(string documentId, DateTime startDate, DateTime endDate)
+    {
+        var result = new List<DocumentViewStatistics>();
+        var monthlyDataQuery = await _context.DocumentViews
+            .Where(dv => dv.DocumentId == documentId && dv.Date >= startDate && dv.Date <= endDate)
+            .ToListAsync();
+
+        // Calculate the start of the month
+        var monthStart = new DateTime(startDate.Year, startDate.Month, 1);
+
+        // Group by month manually
+        var monthlyData = new List<(DateTime MonthStart, int Views)>();
+        while (monthStart <= endDate)
+        {
+            var monthEnd = monthStart.AddMonths(1);
+            var views = monthlyDataQuery
+                .Where(dv => dv.Date >= monthStart && dv.Date < monthEnd)
+                .Sum(dv => dv.Views);
+            monthlyData.Add((monthStart, views));
+            monthStart = monthEnd;
+        }
+
+        // Convert to DocumentViewStatistics
+        foreach (var (month, views) in monthlyData)
+        {
+            result.Add(new DocumentViewStatistics
+            {
+                DocumentId = documentId,
+                Date = month,
                 Views = views
             });
         }

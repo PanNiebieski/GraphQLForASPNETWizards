@@ -21,8 +21,6 @@ public sealed class DocumentViewsExtendObjecType
         var content = await response.Content.ReadAsByteArrayAsync(cancellationToken);
         var json = JsonDocument.Parse(content);
 
-        //return json.RootElement;
-
         var options = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -47,7 +45,6 @@ public sealed class DocumentViewsExtendObjecType
     //{
     //    return await context.Documents.FirstOrDefaultAsync(t => t.Id == id, cancellationToken);
     //}
-
 
 }
 

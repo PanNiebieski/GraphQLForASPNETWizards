@@ -2,7 +2,7 @@
 
 public enum TimeFrame
 {
-    Day,
     Week,
-    Month
+    Month,
+    ThreeMonths,
 }

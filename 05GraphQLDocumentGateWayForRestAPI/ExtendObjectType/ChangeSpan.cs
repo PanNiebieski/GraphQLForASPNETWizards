@@ -2,8 +2,8 @@
 
 public enum ChangeSpan
 {
-    Day,
     Week,
-    Month
+    Month,
+    ThreeMonths
 }
 

@@ -49,7 +49,7 @@ public static class DocumentViewEndpointExtensions
 {
     public static IEndpointRouteBuilder MapDocumentViewEndpoints(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("/{documentId}/{timeFrameS:regex(^(day|week|month)$)}", async (string documentId, string timeFrameS, IDocumentViewService service) =>
+        endpoints.MapGet("/{documentId}/{timeFrameS:regex(^(week|month|threemonths)$)}", async (string documentId, string timeFrameS, IDocumentViewService service) =>
         {
             if (!Enum.TryParse<TimeFrame>(timeFrameS, true, out var timeFrame))
             {
