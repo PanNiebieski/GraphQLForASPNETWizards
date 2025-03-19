@@ -1,5 +1,8 @@
-using _07GraphQLMutations;
-using _07GraphQLMutations.ExtendObjectType;
+using _08GraphQLSubscriptions;
+using _08GraphQLSubscriptions.Mutations;
+using _08GraphQLSubscriptions.Query;
+using _08GraphQLSubscriptions.Query.ExtendObjectType;
+using _08GraphQLSubscriptions.Subs;
 using HotChocolate.AspNetCore;
 using HotChocolate.Execution;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +26,7 @@ builder.Services.AddHttpClient("documentViews", client =>
 });
 
 
+
 // Register GraphQL services
 builder.Services
     .AddGraphQLServer()
@@ -32,10 +36,16 @@ builder.Services
     .AddHttpRequestInterceptor<HttpRequestInterceptor>()
     .AddTypeExtension<DocumentViewsExtendObjecType>()
     .AddType<DocumentType>()
+
     .AddMutationType<Mutation>()
+        .AddTypeExtension<QuestionMutations>()
+    .AddSubscriptionType<DocumentSubscriptions>()
     .AddQueryType<Query>()
     .AddMutationConventions()
+    .AddInMemorySubscriptions()
     .RegisterDbContextFactory<AppDbContext>();
+
+builder.Services.AddHostedService<BackgroundServiceDocumentTaskPublisher>();
 
 var app = builder.Build();
 

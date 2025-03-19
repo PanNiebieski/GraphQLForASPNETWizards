@@ -1,8 +1,8 @@
-﻿using _07GraphQLMutations.Models;
+﻿using _08GraphQLSubscriptions.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace _07GraphQLMutations;
+namespace _08GraphQLSubscriptions.Mutations;
 
 public class Mutation
 {

@@ -4,7 +4,7 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>_06GraphQLDocumentDataLoader</RootNamespace>
+		<RootNamespace>_08GraphQLSubscriptions</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,8 +15,6 @@
 	<ItemGroup>
 		<PackageReference Include="HotChocolate.AspNetCore" Version="15.0.3" />
 		<PackageReference Include="HotChocolate.Data.EntityFramework" Version="15.0.3" />
-		<PackageReference Include="HotChocolate.Types.Analyzers" Version="15.0.3" />
-		<PackageReference Include="Metaphor.HotChocolate.Types.Analyzers" Version="0.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2" />
 	</ItemGroup>
 </Project>
