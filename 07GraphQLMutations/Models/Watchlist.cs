@@ -1,6 +1,5 @@
 ﻿namespace _07GraphQLMutations.Models;
 
-
 public class Watchlist
 {
     public int Id { get; set; }

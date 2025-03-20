@@ -9,6 +9,5 @@ public class LLMAnswerType : ObjectType<LLMAnswer>
         descriptor.Field(t => t.Answer).Description("The answer to the question");
         descriptor.Field(t => t.Question).Description("The question");
         descriptor.Field(t => t.DocumentId).Description("The document ID");
-
     }
 }

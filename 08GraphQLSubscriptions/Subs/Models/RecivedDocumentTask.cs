@@ -8,6 +8,7 @@ public class RecivedDocumentTask
         Task = task;
         Time = time;
     }
+
     public int DocumentId { get; set; }
     public string Task { get; set; }
     public TimeOnly Time { get; set; }

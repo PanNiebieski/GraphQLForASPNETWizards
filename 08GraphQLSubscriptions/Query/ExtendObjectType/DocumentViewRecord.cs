@@ -6,4 +6,3 @@ public class DocumentViewRecord
     public DateTime Date { get; set; }
     public int Views { get; set; }
 }
-

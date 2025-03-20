@@ -1,5 +1,3 @@
-using HotChocolate.Types;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
@@ -13,8 +11,6 @@ app.MapGet("/", () =>
 { return Results.Redirect($"/graphql", permanent: true); });
 
 app.Run();
-
-
 
 public class Query
 {
@@ -33,11 +29,4 @@ public class Query
         return $"Hello, {name}! {calMessage} " +
             $"It's {timeMessage}.";
     }
-
-    public string Document(string orderBy, string direction, int skip, int take)
-    {
-        return $"G!";
-    }
 }
-
-

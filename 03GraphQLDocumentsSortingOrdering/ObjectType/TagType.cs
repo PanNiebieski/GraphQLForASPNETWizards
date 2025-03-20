@@ -1,5 +1,4 @@
-﻿using _03GraphQLDocumentsSortingOrdering.Models;
-using Tag = _03GraphQLDocumentsSortingOrdering.Models.Tag;
+﻿using Tag = _03GraphQLDocumentsSortingOrdering.Models.Tag;
 
 namespace _03GraphQLDocumentsSortingOrdering;
 

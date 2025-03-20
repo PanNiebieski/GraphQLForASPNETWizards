@@ -1,5 +1,4 @@
-﻿using _07GraphQLMutations.Models;
-using Tag = _07GraphQLMutations.Models.Tag;
+﻿using Tag = _07GraphQLMutations.Models.Tag;
 
 namespace _07GraphQLMutations;
 

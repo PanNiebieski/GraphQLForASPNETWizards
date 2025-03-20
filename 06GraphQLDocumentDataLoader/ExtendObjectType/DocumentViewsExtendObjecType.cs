@@ -6,7 +6,6 @@ namespace _06GraphQLDocumentDataLoader.ExtendObjectType;
 [ExtendObjectType(typeof(Document))]
 public class DocumentViewsExtendObjecType
 {
-
     public static async Task<DocumentViews> GetViewChange(ChangeSpan span,
      [Parent] Document parent,
      ViewsByKeyFrom_Hotchocolate_Types_Analyzers_DataLoader loader,
@@ -15,14 +14,12 @@ public class DocumentViewsExtendObjecType
         return await loader.LoadAsync(new KeyAndSpan(parent.Id, span), cancellationToken);
     }
 
-
     [DataLoader(name: "ViewsByKeyFrom_Hotchocolate_Types_Analyzers_")]
     public static async Task<IReadOnlyDictionary<KeyAndSpan, DocumentViews>> GetViewsByKey(
         IReadOnlyList<KeyAndSpan> keysAndSpans,
         [Service] IHttpClientFactory clientFactory,
         CancellationToken cancellationToken)
     {
-
         using HttpClient client = clientFactory.CreateClient("documentViews");
         var map = new Dictionary<KeyAndSpan, DocumentViews>();
 
@@ -59,25 +56,10 @@ public class DocumentViewsExtendObjecType
         return map;
     }
 
-    //private static int NumberOfRequests { get; set; }
-
-    //// The loader is now injected as the concrete type.
-    //public async Task<DocumentViews> GetViewChange(
-    //    ChangeSpan span,
-    //    [Parent] Document parent,
-    //    ViewsByKeyDataLoader2 loader,
-    //    CancellationToken cancellationToken)
-    //{
-    //    NumberOfRequests++;
-
-    //    return await loader.LoadAsync(new KeyAndSpan(parent.Id, span), cancellationToken);
-    //}
-
     //This will create TestDataLoader
     [DataLoader(name: "Test")]
     public static async Task<Dictionary<int, string>> GetTestIdAsync(
     IReadOnlyList<int> ids,
     CancellationToken ct)
     => new Dictionary<int, string>() { { 1, "1" } };
-
 }

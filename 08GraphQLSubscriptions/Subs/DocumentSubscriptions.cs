@@ -3,7 +3,6 @@ using HotChocolate.Execution;
 using HotChocolate.Subscriptions;
 using System.Runtime.CompilerServices;
 
-
 namespace _08GraphQLSubscriptions.Subs;
 
 public class DocumentSubscriptions

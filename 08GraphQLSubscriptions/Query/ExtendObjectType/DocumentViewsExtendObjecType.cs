@@ -19,7 +19,6 @@ public class DocumentViewsExtendObjecType
         return await loader.LoadAsync(new KeyAndSpan(parent.Id, span), cancellationToken);
     }
 
-
     //    public static async Task<DocumentViews> GetViewChange(ChangeSpan span,
     // [Parent] Document parent,
     //Foo loader,
@@ -34,7 +33,6 @@ public class DocumentViewsExtendObjecType
     //        [Service] IHttpClientFactory clientFactory,
     //        CancellationToken cancellationToken)
     //    {
-
     //        using HttpClient client = clientFactory.CreateClient("documentViews");
     //        var map = new Dictionary<KeyAndSpan, DocumentViews>();
 

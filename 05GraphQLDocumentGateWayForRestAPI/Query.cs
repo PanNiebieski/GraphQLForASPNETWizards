@@ -17,7 +17,6 @@ public class Query
         var all = context.Documents.Include(a => a.Tags).Include(a => a.Metadata);
         return all;
     }
-
 }
 
 public class DocumentSortingInputType : SortInputType<Document>

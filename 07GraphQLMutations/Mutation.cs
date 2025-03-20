@@ -1,7 +1,6 @@
 ﻿using _07GraphQLMutations.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace _07GraphQLMutations;
 
 public class Mutation
@@ -60,7 +59,6 @@ public class Mutation
 
         return userId.Value;
     }
-
 }
 
 public class WatchlistRepository
@@ -121,35 +119,42 @@ public class WatchlistRepository
 
         return true;
     }
-
 }
 
 // Updated exception classes with consistent naming
 public class NotAuthenticatedException : Exception
 {
-    public NotAuthenticatedException() : base("User is not authenticated") { }
+    public NotAuthenticatedException() : base("User is not authenticated")
+    {
+    }
 }
 
 public class WrongPasswordException : Exception
 {
-    public WrongPasswordException() : base("Wrong password") { }
+    public WrongPasswordException() : base("Wrong password")
+    {
+    }
 }
 
 public class UserDoesNotExistException : Exception
 {
-    public UserDoesNotExistException() : base("User does not exist") { }
+    public UserDoesNotExistException() : base("User does not exist")
+    {
+    }
 }
 
 public class DocumentDoesntExist : Exception
 {
-    public DocumentDoesntExist() : base("Document does not exist") { }
+    public DocumentDoesntExist() : base("Document does not exist")
+    {
+    }
 }
-
-
 
 public class WatchlistItemDoesNotExistException : Exception
 {
-    public WatchlistItemDoesNotExistException() : base("Watchlist item does not exist") { }
+    public WatchlistItemDoesNotExistException() : base("Watchlist item does not exist")
+    {
+    }
 }
 
 public static class Users

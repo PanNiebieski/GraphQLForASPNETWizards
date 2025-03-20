@@ -1,6 +1,4 @@
-﻿
-using _06GraphQLDocumentDataLoader.Models;
-using HotChocolate.Types;
+﻿using _06GraphQLDocumentDataLoader.Models;
 
 namespace _06GraphQLDocumentDataLoader;
 

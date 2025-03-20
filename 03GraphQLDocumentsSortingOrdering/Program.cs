@@ -19,11 +19,8 @@ builder.Services
     .AddType<MetadataType>()
     .RegisterDbContextFactory<AppDbContext>();
 
-
 var app = builder.Build();
 
 app.MapGraphQL();
 
 app.Run();
-
-

@@ -1,5 +1,4 @@
 ﻿using _04GraphQLDocumentsWithDapper.Models;
-using HotChocolate.Types;
 
 namespace _04GraphQLDocumentsWithDapper.ObjectType;
 

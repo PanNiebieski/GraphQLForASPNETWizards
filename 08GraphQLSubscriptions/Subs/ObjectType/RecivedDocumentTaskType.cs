@@ -9,6 +9,5 @@ public class RecivedDocumentTaskType : ObjectType<RecivedDocumentTask>
         descriptor.Field(t => t.DocumentId).Description("The document ID");
         descriptor.Field(t => t.Task).Description("The task");
         descriptor.Field(t => t.Time).Description("The time the task was created");
-
     }
 }

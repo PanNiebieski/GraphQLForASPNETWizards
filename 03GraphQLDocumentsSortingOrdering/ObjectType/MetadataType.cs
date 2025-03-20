@@ -1,6 +1,4 @@
-﻿
-using _03GraphQLDocumentsSortingOrdering.Models;
-using HotChocolate.Types;
+﻿using _03GraphQLDocumentsSortingOrdering.Models;
 
 namespace _03GraphQLDocumentsSortingOrdering;
 

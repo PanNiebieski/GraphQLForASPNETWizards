@@ -8,9 +8,3 @@ public class Tag
     // Navigation property - will need custom logic to populate
     public List<Document> Documents { get; set; } = new();
 }
-
-
-
-
-
-

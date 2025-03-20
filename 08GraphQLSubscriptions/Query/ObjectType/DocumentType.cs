@@ -1,6 +1,4 @@
 ﻿using _08GraphQLSubscriptions.Models;
-using HotChocolate.Types;
-using Microsoft.EntityFrameworkCore;
 
 namespace _08GraphQLSubscriptions;
 
@@ -22,5 +20,3 @@ public class DocumentType : ObjectType<Document>
         descriptor.Field(d => d.Metadata).Description("The metadata associated with the document");
     }
 }
-
-

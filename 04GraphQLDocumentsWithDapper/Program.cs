@@ -30,7 +30,6 @@ app.MapGraphQL();
 
 app.Run();
 
-
 public class DocumentSortInputType : SortInputType<Document>
 {
     protected override void Configure(ISortInputTypeDescriptor<Document> descriptor)

@@ -1,5 +1,4 @@
-﻿using _08GraphQLSubscriptions.Models;
-using Tag = _08GraphQLSubscriptions.Models.Tag;
+﻿using Tag = _08GraphQLSubscriptions.Models.Tag;
 
 namespace _08GraphQLSubscriptions;
 

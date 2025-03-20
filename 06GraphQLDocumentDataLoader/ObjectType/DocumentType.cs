@@ -1,6 +1,4 @@
 ﻿using _06GraphQLDocumentDataLoader.Models;
-using HotChocolate.Types;
-using Microsoft.EntityFrameworkCore;
 
 namespace _06GraphQLDocumentDataLoader;
 
@@ -22,5 +20,3 @@ public class DocumentType : ObjectType<Document>
         descriptor.Field(d => d.Metadata).Description("The metadata associated with the document");
     }
 }
-
-

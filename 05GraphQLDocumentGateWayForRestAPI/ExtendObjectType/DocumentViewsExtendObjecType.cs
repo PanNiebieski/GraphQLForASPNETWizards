@@ -45,6 +45,4 @@ public sealed class DocumentViewsExtendObjecType
     //{
     //    return await context.Documents.FirstOrDefaultAsync(t => t.Id == id, cancellationToken);
     //}
-
 }
-

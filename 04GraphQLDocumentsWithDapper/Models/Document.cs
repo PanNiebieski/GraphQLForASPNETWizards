@@ -12,9 +12,6 @@ public class Document
     // Navigation properties - These won't be populated automatically by Dapper
     // We'll need to write custom logic to populate them
     public List<Tag> Tags { get; set; } = new();
+
     public List<Metadata> Metadata { get; set; } = new();
 }
-
-
-
-

@@ -19,11 +19,12 @@ services.AddGraphQLServer()
             .AddType<ProductDetailsType>()
             .AddType<ReviewType>();
 
-
 var serviceProvider = services.BuildServiceProvider();
 
 var executorResolver = serviceProvider.GetRequiredService<IRequestExecutorResolver>();
 var executor = await executorResolver.GetRequestExecutorAsync();
+
+Console.ReadLine();
 
 Console.WriteLine("Running GraphQL query with @defer and @stream...");
 
@@ -85,6 +86,45 @@ else
 
 Console.WriteLine("\nQuery execution completed.");
 
+void UpdateFinalJson(Dictionary<string, object> finalResult, string json)
+{
+    using (var doc = JsonDocument.Parse(json))
+    {
+        var root = doc.RootElement;
+
+        // Merge the top-level "data" object into finalResult.
+        if (root.TryGetProperty("data", out var dataProp))
+        {
+            var dataObj = JsonElementToObject(dataProp) as Dictionary<string, object>;
+            if (!finalResult.ContainsKey("data"))
+            {
+                finalResult["data"] = dataObj;
+            }
+            else
+            {
+                MergeDictionaries(finalResult["data"] as Dictionary<string, object>, dataObj);
+            }
+        }
+
+        // Process any incremental patch entries.
+        if (root.TryGetProperty("incremental", out var incrementalProp) && incrementalProp.ValueKind == JsonValueKind.Array)
+        {
+            foreach (var inc in incrementalProp.EnumerateArray())
+            {
+                // Each patch has a "path" (an array of keys/indexes)
+                // and either "data" (an object patch) or "items" (for arrays).
+                ApplyIncrementalPatch(finalResult["data"] as Dictionary<string, object>, inc);
+            }
+        }
+    }
+}
+
+static void WriteFinalJson(Dictionary<string, object> finalResult)
+{
+    var finalJson = JsonSerializer.Serialize(finalResult, new JsonSerializerOptions { WriteIndented = true });
+    Console.WriteLine("\n========Final Merged JSON=========\n");
+    Console.WriteLine(finalJson);
+}
 
 /// <summary>
 /// Recursively merges dictionary source into target.
@@ -240,6 +280,7 @@ object JsonElementToObject(JsonElement element)
                 dict[prop.Name] = JsonElementToObject(prop.Value);
             }
             return dict;
+
         case JsonValueKind.Array:
             var list = new List<object>();
             foreach (var item in element.EnumerateArray())
@@ -247,22 +288,26 @@ object JsonElementToObject(JsonElement element)
                 list.Add(JsonElementToObject(item));
             }
             return list;
+
         case JsonValueKind.String:
             return element.GetString();
+
         case JsonValueKind.Number:
             if (element.TryGetInt64(out long l))
                 return l;
             return element.GetDouble();
+
         case JsonValueKind.True:
         case JsonValueKind.False:
             return element.GetBoolean();
+
         case JsonValueKind.Null:
             return null;
+
         default:
             return element.ToString();
     }
 }
-
 
 /// <summary>
 /// Sets a value at the given path in the target object.
@@ -344,46 +389,4 @@ void SetAtPathInList(List<object> list, List<object> path, JsonElement value)
         path.RemoveAt(0);
         SetAtPathInList(innerList, path, value);
     }
-}
-
-
-
-void UpdateFinalJson(Dictionary<string, object> finalResult, string json)
-{
-    using (var doc = JsonDocument.Parse(json))
-    {
-        var root = doc.RootElement;
-
-        // Merge the top-level "data" object into finalResult.
-        if (root.TryGetProperty("data", out var dataProp))
-        {
-            var dataObj = JsonElementToObject(dataProp) as Dictionary<string, object>;
-            if (!finalResult.ContainsKey("data"))
-            {
-                finalResult["data"] = dataObj;
-            }
-            else
-            {
-                MergeDictionaries(finalResult["data"] as Dictionary<string, object>, dataObj);
-            }
-        }
-
-        // Process any incremental patch entries.
-        if (root.TryGetProperty("incremental", out var incrementalProp) && incrementalProp.ValueKind == JsonValueKind.Array)
-        {
-            foreach (var inc in incrementalProp.EnumerateArray())
-            {
-                // Each patch has a "path" (an array of keys/indexes)
-                // and either "data" (an object patch) or "items" (for arrays).
-                ApplyIncrementalPatch(finalResult["data"] as Dictionary<string, object>, inc);
-            }
-        }
-    }
-}
-
-static void WriteFinalJson(Dictionary<string, object> finalResult)
-{
-    var finalJson = JsonSerializer.Serialize(finalResult, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine("\n========Final Merged JSON=========\n");
-    Console.WriteLine(finalJson);
 }

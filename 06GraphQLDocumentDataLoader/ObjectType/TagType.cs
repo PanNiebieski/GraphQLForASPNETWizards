@@ -1,5 +1,4 @@
-﻿using _06GraphQLDocumentDataLoader.Models;
-using Tag = _06GraphQLDocumentDataLoader.Models.Tag;
+﻿using Tag = _06GraphQLDocumentDataLoader.Models.Tag;
 
 namespace _06GraphQLDocumentDataLoader;
 

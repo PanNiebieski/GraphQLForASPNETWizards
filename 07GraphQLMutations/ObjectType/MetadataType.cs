@@ -1,6 +1,4 @@
-﻿
-using _07GraphQLMutations.Models;
-using HotChocolate.Types;
+﻿using _07GraphQLMutations.Models;
 
 namespace _07GraphQLMutations;
 

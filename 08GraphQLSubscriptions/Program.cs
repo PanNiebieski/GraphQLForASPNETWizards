@@ -7,7 +7,6 @@ using HotChocolate.AspNetCore;
 using HotChocolate.Execution;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,8 +24,6 @@ builder.Services.AddHttpClient("documentViews", client =>
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });
 
-
-
 // Register GraphQL services
 builder.Services
     .AddGraphQLServer()
@@ -36,9 +33,8 @@ builder.Services
     .AddHttpRequestInterceptor<HttpRequestInterceptor>()
     .AddTypeExtension<DocumentViewsExtendObjecType>()
     .AddType<DocumentType>()
-
     .AddMutationType<Mutation>()
-        .AddTypeExtension<QuestionMutations>()
+    .AddTypeExtension<QuestionMutations>()
     .AddSubscriptionType<DocumentSubscriptions>()
     .AddQueryType<Query>()
     .AddMutationConventions()
@@ -102,4 +98,3 @@ public class GlobalStatePasswordAttribute : GlobalStateAttribute
     {
     }
 }
-

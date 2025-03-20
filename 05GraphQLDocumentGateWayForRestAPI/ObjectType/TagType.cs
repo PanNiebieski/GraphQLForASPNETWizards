@@ -1,5 +1,4 @@
-﻿using _05GraphQLDocumentGateWayForRestAPI.Models;
-using Tag = _05GraphQLDocumentGateWayForRestAPI.Models.Tag;
+﻿using Tag = _05GraphQLDocumentGateWayForRestAPI.Models.Tag;
 
 namespace _05GraphQLDocumentGateWayForRestAPI;
 

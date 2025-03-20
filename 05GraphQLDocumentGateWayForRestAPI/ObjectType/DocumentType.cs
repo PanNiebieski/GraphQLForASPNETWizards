@@ -1,7 +1,4 @@
-﻿
-using _05GraphQLDocumentGateWayForRestAPI.Models;
-using HotChocolate.Types;
-using Microsoft.EntityFrameworkCore;
+﻿using _05GraphQLDocumentGateWayForRestAPI.Models;
 
 namespace _05GraphQLDocumentGateWayForRestAPI;
 
@@ -23,5 +20,3 @@ public class DocumentType : ObjectType<Document>
         descriptor.Field(d => d.Metadata).Description("The metadata associated with the document");
     }
 }
-
-

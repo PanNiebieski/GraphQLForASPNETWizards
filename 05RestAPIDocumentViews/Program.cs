@@ -32,7 +32,6 @@ app.MapGroup("/views")
 
 app.Run();
 
-
 public static class DocumentViewEndpointExtensions
 {
     public static IEndpointRouteBuilder MapDocumentViewEndpoints(this IEndpointRouteBuilder endpoints)
@@ -63,8 +62,4 @@ public static class DocumentViewEndpointExtensions
 
         return endpoints;
     }
-
-
-
 }
-

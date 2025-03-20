@@ -16,7 +16,6 @@ builder.Services.AddHttpClient("documentViews", client =>
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });
 
-
 // Register GraphQL services
 builder.Services
     .AddGraphQLServer()
@@ -33,4 +32,3 @@ var app = builder.Build();
 app.MapGraphQL();
 
 app.Run();
-

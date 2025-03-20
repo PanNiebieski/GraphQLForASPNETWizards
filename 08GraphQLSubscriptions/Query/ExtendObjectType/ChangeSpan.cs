@@ -6,4 +6,3 @@ public enum ChangeSpan
     Month,
     ThreeMonths
 }
-

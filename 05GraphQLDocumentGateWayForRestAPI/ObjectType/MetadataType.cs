@@ -1,6 +1,4 @@
-﻿
-using _05GraphQLDocumentGateWayForRestAPI.Models;
-using HotChocolate.Types;
+﻿using _05GraphQLDocumentGateWayForRestAPI.Models;
 
 namespace _05GraphQLDocumentGateWayForRestAPI;
 

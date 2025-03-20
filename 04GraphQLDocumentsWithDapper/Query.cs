@@ -1,9 +1,6 @@
 ﻿using _04GraphQLDocumentsWithDapper.Models;
-using _04GraphQLDocumentsWithDapper.ObjectType;
-using HotChocolate;
 using HotChocolate.Data.Filters;
 using HotChocolate.Data.Projections.Context;
-using HotChocolate.Language;
 using HotChocolate.Resolvers;
 
 namespace _04GraphQLDocumentsWithDapper;
@@ -43,8 +40,6 @@ public class Query
     {
         return await repository.GetDocumentByIdAsync(id);
     }
-
-
 }
 
 public class UserFilterType : FilterInputType<Document>

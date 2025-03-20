@@ -13,4 +13,3 @@ public class DocumentViews
     public DateTime? ToDate { get; set; }
     public int Views { get; set; }
 }
-

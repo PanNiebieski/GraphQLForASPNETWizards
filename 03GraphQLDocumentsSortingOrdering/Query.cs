@@ -18,7 +18,6 @@ public class Query
         return resolver.ArgumentKind("order") is ValueKind.Null
         ? all.OrderBy(t => t.Title) : all;
     }
-
 }
 
 public class DocumentSortingInputType : SortInputType<Document>

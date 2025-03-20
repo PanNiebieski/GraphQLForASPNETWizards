@@ -1,6 +1,4 @@
-﻿
-using _08GraphQLSubscriptions.Models;
-using HotChocolate.Types;
+﻿using _08GraphQLSubscriptions.Models;
 
 namespace _08GraphQLSubscriptions;
 

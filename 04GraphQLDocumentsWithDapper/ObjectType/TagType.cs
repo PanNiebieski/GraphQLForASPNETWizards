@@ -1,6 +1,4 @@
-﻿using _04GraphQLDocumentsWithDapper.Models;
-using HotChocolate.Types;
-using Tag = _04GraphQLDocumentsWithDapper.Models.Tag;
+﻿using Tag = _04GraphQLDocumentsWithDapper.Models.Tag;
 
 namespace _04GraphQLDocumentsWithDapper.ObjectType;
 

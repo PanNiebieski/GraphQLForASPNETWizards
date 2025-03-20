@@ -9,6 +9,7 @@ public class BackgroundServiceDocumentTaskPublisher : BackgroundService
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ITopicEventSender _eventSender;
     private readonly Random _random = new Random();
+
     private readonly string[] _taskTypes = new[]
     {
         "Review",
